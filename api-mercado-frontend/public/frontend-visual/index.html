@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Queries Visuais - API de Produtos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <h1>Queries visuais</h1>
+      <p class="sub">API de Produtos &middot; Spring Boot + MongoDB Atlas</p>
+    </div>
+    <div class="conexao">
+      <label for="baseUrl">URL do backend</label>
+      <input id="baseUrl" type="text" value="http://localhost:8080" spellcheck="false">
+      <span id="status" class="status status--off">verificando...</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="painel" aria-label="Catálogo de queries">
+      <h2>Queries</h2>
+      <div id="catalogo"></div>
+    </aside>
+
+    <section class="coluna">
+      <div class="painel">
+        <h2>Arquitetura da requisição</h2>
+        <div id="fluxo" class="fluxo" aria-live="polite"></div>
+        <p id="fluxoTexto" class="fluxo-texto">Escolha uma query e clique em <strong>Executar</strong> para ver o caminho percorrido.</p>
+        <div class="duas">
+          <div>
+            <h3>Requisição HTTP</h3>
+            <pre id="reqHttp" class="codigo">&mdash;</pre>
+          </div>
+          <div>
+            <h3>Equivalente no MongoDB</h3>
+            <pre id="reqMongo" class="codigo">&mdash;</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="painel">
+        <div class="resultado-topo">
+          <h2>Resultado</h2>
+          <div class="abas" role="tablist">
+            <button class="aba aba--ativa" data-aba="cards" role="tab">Cards</button>
+            <button class="aba" data-aba="tabela" role="tab">Tabela</button>
+            <button class="aba" data-aba="json" role="tab">JSON</button>
+          </div>
+        </div>
+        <div id="resumo" class="resumo"></div>
+        <div id="saida" class="saida"><p class="vazio">Nenhuma query executada ainda.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

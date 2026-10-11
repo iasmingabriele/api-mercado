@@ -1,0 +1,43 @@
+POST http://localhost:8080/api/categorias
+Content-Type: application/json
+
+{
+  "nome": "Eletrônicos",
+  "descricao": "Produtos eletrônicos em geral"
+}
+
+###
+GET http://localhost:8080/api/categorias
+
+###
+POST http://localhost:8080/api/produtos
+Content-Type: application/json
+
+{
+  "nome": "Notebook",
+  "descricao": "Notebook 15 polegadas",
+  "preco": 3200.00,
+  "quantidadeEstoque": 5,
+  "categoria": { "id": 1 }
+}
+
+###
+GET http://localhost:8080/api/produtos
+
+###
+GET http://localhost:8080/api/produtos/1
+
+###
+PUT http://localhost:8080/api/produtos/1
+Content-Type: application/json
+
+{
+  "nome": "Notebook Gamer",
+  "descricao": "Notebook 15 polegadas, gamer",
+  "preco": 4200.00,
+  "quantidadeEstoque": 3,
+  "categoria": { "id": 1 }
+}
+
+###
+DELETE http://localhost:8080/api/produtos/1

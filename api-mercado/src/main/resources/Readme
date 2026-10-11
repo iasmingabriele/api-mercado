@@ -1,0 +1,61 @@
+# API Mercado
+
+Trabalho da faculdade — API em Java (Spring Boot) com Categoria e Produto (CRUD completo), banco no MongoDB Atlas (nuvem) e uma telinha em Angular pra mostrar funcionando.
+
+**Autora:** Iasmin Gabriele
+
+---
+
+## O que tem aqui dentro
+
+- `api-mercado` → o backend (a API em Java)
+- `api-mercado-frontend` → a tela em Angular pra usar a API
+
+---
+
+## Antes de rodar, precisa ter instalado
+
+- Java 21+
+- Node.js (baixa em nodejs.org)
+- Angular CLI — depois de instalar o Node, roda no terminal: `npm install -g @angular/cli`
+
+Não precisa instalar MongoDB — o banco já está na nuvem, configurado.
+
+---
+
+## Como rodar (dois terminais ao mesmo tempo)
+
+### 1º terminal — Backend
+
+```
+cd api-mercado
+.\mvnw.cmd spring-boot:run
+```
+
+Espera aparecer `Started ApiMercadoApplication` no terminal. Deixa esse terminal aberto.
+
+### 2º terminal — Frontend
+
+```
+cd api-mercado-frontend
+npm install
+ng serve
+```
+
+Espera aparecer `Local: http://localhost:4200/`.
+
+### Agora é só abrir
+
+Vai no navegador em **http://localhost:4200** — a tela carrega as categorias e produtos, e dá pra cadastrar e remover direto por lá.
+
+---
+
+## Se der algum erro
+
+- **Erro de CORS:** confere se o backend (terminal 1) está mesmo rodando antes de abrir o frontend.
+- **Backend não conecta no banco:** confere o arquivo `api-mercado/src/main/resources/application.properties` — a connection string do MongoDB tem que estar certinha.
+- **Erro ao rodar o backend pela primeira vez:** roda `.\mvnw.cmd clean install -DskipTests` antes do `spring-boot:run`.
+
+---
+
+Feito com Spring Boot + MongoDB + Angular 

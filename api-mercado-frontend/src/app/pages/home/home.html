@@ -1,0 +1,32 @@
+<h1>API Mercado</h1>
+
+<h2>Categorias</h2>
+<form (ngSubmit)="salvarCategoria()">
+  <input [(ngModel)]="novaCategoria.nome" name="nome" placeholder="Nome" required>
+  <input [(ngModel)]="novaCategoria.descricao" name="descricao" placeholder="Descrição">
+  <button type="submit">Adicionar Categoria</button>
+</form>
+<ul>
+  <li *ngFor="let c of categorias">
+    {{ c.nome }} - {{ c.descricao }}
+    <button (click)="removerCategoria(c.id)">Remover</button>
+  </li>
+</ul>
+
+<h2>Produtos</h2>
+<form (ngSubmit)="salvarProduto()">
+  <input [(ngModel)]="novoProduto.nome" name="nome" placeholder="Nome" required>
+  <input [(ngModel)]="novoProduto.descricao" name="descricao" placeholder="Descrição">
+  <input [(ngModel)]="novoProduto.preco" name="preco" type="number" placeholder="Preço">
+  <input [(ngModel)]="novoProduto.quantidadeEstoque" name="quantidadeEstoque" type="number" placeholder="Estoque">
+  <select [(ngModel)]="novoProduto.categoriaId" name="categoriaId">
+    <option *ngFor="let c of categorias" [value]="c.id">{{ c.nome }}</option>
+  </select>
+  <button type="submit">Adicionar Produto</button>
+</form>
+<ul>
+  <li *ngFor="let p of produtos">
+    {{ p.nome }} - R$ {{ p.preco }} ({{ p.quantidadeEstoque }} un.)
+    <button (click)="removerProduto(p.id)">Remover</button>
+  </li>
+</ul>
